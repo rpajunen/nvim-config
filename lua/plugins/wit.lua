@@ -12,5 +12,9 @@ return {
         vim.cmd("WitSearch " .. search_query)
       end
     end, { noremap = true, silent = true })
+
+    vim.keymap.set("x", "<leader>si", function()
+      vim.cmd("'<,'>WitSearchVisual")
+    end, { noremap = true, silent = true })
   end,
 }
