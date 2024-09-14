@@ -13,8 +13,8 @@ return {
       end
     end, { noremap = true, silent = true })
 
-    vim.keymap.set("x", "<leader>si", function()
-      vim.cmd("'<,'>WitSearchVisual")
-    end, { noremap = true, silent = true })
+    vim.keymap.set("v", "<leader>si", function()
+      vim.cmd("WitSearchVisual")
+    end, { noremap = true, silent = false })
   end,
 }
