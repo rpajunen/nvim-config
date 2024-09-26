@@ -9,7 +9,12 @@ return {
         signcolumn = "yes:1",
       },
       default_file_explorer = true,
-      keymaps = { ["<Esc>"] = "actions.close" },
+      keymaps = {
+        ["<Esc>"] = "actions.close",
+        ["<C-s>"] = function()
+          vim.cmd(":w")
+        end,
+      },
     })
   end,
   keys = {
