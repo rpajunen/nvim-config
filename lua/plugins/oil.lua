@@ -8,7 +8,7 @@ return {
       win_options = {
         signcolumn = "yes:1",
       },
-      default_file_explorer = true,
+      default_file_explorer = false,
       keymaps = {
         ["<Esc>"] = "actions.close",
         ["<C-s>"] = function()
