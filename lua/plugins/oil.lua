@@ -8,9 +8,10 @@ return {
       win_options = {
         signcolumn = "yes:1",
       },
-      default_file_explorer = false,
+      default_file_explorer = true,
       keymaps = {
         ["<Esc>"] = "actions.close",
+        ["_"] = "actions.open_cwd",
         ["<C-s>"] = function()
           vim.cmd(":w")
         end,
