@@ -12,3 +12,5 @@ vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
 
 vim.keymap.set("n", "<leader>os", "<cmd>ObsidianQuickSwitch<cr>")
 vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<cr>")
+
+vim.keymap.set("n", "=", ':lua require("oil").open(vim.fn.getcwd())<CR>', { noremap = true, silent = true })
