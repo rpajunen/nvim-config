@@ -16,7 +16,6 @@ return {
   config = function()
     require("oil").setup({
       win_options = {
-        signcolumn = "yes:1",
         winbar = "%!v:lua.get_oil_winbar()",
       },
       default_file_explorer = true,
