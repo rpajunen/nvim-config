@@ -1,7 +1,7 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-vim.keymap.set("n", "<CR>", "m`o<Esc>``")
+-- vim.keymap.set("n", "<CR>", "m`o<Esc>``")
 vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
 vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
 vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
@@ -46,4 +46,11 @@ vim.api.nvim_set_keymap("n", "<leader>rl", "<cmd>Rest run last<CR>", { noremap =
 vim.api.nvim_set_keymap("n", "<leader>rp", "<cmd>Rest preview<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>aic", "<cmd>CodeCompanionChat<cr>", { desc = "Chat with AI", silent = true })
-vim.keymap.set("n", "<leader>aii", "<cmd>CodeCompanion<cr>", { desc = "Inline AI Assist", silent = true })
+
+vim.keymap.set("n", "<CR>", function()
+  vim.api.nvim_command('call append(line("."), "")')
+end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "<Leader><CR>", function()
+  vim.api.nvim_command('call append(line(".")-1, "")')
+end, { noremap = true, silent = true })
