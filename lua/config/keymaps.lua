@@ -14,7 +14,15 @@ vim.keymap.set("n", "<leader>os", "<cmd>ObsidianQuickSwitch<cr>")
 vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<cr>")
 vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianToday<cr>")
 
-vim.keymap.set("n", "=", ':lua require("oil").open(vim.fn.getcwd())<CR>', { noremap = true, silent = true })
+-- vim.keymap.set("n", "-", function()
+--   local file_dir = vim.fn.expand("%:p:h")
+--   require("mini.files").open(file_dir)
+-- end, { desc = "Open mini.files with current file's PWD" })
+--
+-- vim.keymap.set("n", "=", function()
+--   local cwd = vim.fn.getcwd()
+--   require("mini.files").open(cwd)
+-- end, { desc = "Open mini.files with CWD" })
 
 vim.keymap.set("n", "<leader>SR", function()
   print("Instructions: y = replace, n = skip, a = replace all, q = quit, l = last replace, ^E/^Y = scroll")
@@ -54,3 +62,5 @@ end, { noremap = true, silent = true })
 vim.keymap.set("n", "<Leader><CR>", function()
   vim.api.nvim_command('call append(line(".")-1, "")')
 end, { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>lua Snacks.picker.explorer()<cr>", {})

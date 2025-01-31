@@ -11,6 +11,7 @@ return {
 
   -- example using `opts` for defining servers
   opts = {
+    inlay_hints = { enabled = false },
     servers = {
       lua_ls = {},
     },

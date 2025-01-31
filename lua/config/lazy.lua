@@ -31,6 +31,18 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   -- install = { colorscheme = { "habamax", "folke/tokyonight" } },
+  lsp = {
+    formatting = {
+      filter = function(client, bufnr)
+        local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
+        -- Disable formatting for Solidity
+        if ft == "solidity" then
+          return false
+        end
+        return true -- Enable formatting for other file types
+      end,
+    },
+  },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
@@ -47,6 +59,26 @@ require("lazy").setup({
         "tohtml",
         "tutor",
         "zipPlugin",
+      },
+    },
+  },
+})
+
+require("lspconfig").efm.setup({
+  filetypes = { "solidity" },
+  settings = {
+    languages = {
+      solidity = {
+        { -- solidity could have more than one linter, hence this nesting.
+          lintStdin = true, -- pipe buffer content to solhint
+          lintIgnoreExitCode = true, -- because exit code 1 is common
+          lintCommand = "solhint stdin", -- default format stylish
+          lintFormats = {
+            " %#%l:%c %#%tarning %#%m",
+            " %#%l:%c %#%trror %#%m", -- solhint only has error and warn
+          },
+          lintSource = "solhint",
+        },
       },
     },
   },

@@ -37,8 +37,10 @@ return {
       -- optionally, separate cmdline keymaps
       -- cmdline = {}
     },
-
     completion = {
+      documentation = {
+        auto_show = false,
+      },
       ghost_text = {
         enabled = false,
       },
